@@ -43,7 +43,7 @@ function OperationManagement() {
         console.log('JSONデータ:', JSON.stringify(data, null, 2));
 
          try {
-            const response = await fetch('http://180.59.88.128:4160/omdata', {
+            const response = await fetch('https://180.59.88.128:4160/omdata', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
