@@ -40,7 +40,7 @@ function OperationManagement() {
             carStatus,
             driverName,
             licenseBase64,
-            submitTime
+            submitTime: formattedTime
         };
 
         console.log('JSONデータ:', JSON.stringify(data, null, 2));
