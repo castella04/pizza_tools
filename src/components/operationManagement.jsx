@@ -23,6 +23,8 @@ function OperationManagement() {
     const availableCarID = storeName ? carIDByStoreName[storeName] : [];
 
     const handleSubmit = async (e) => {
+
+        
         e.preventDefault();
         const currentTime = new Date().toLocaleString('ja-JP', {timeZone: 'Asia/Tokyo'});
         currentTime = currentTime.replace(/\//g, '-').replace(/,/g, '').replace(/\s/g, '-');
@@ -38,7 +40,7 @@ function OperationManagement() {
             carStatus,
             driverName,
             licenseBase64,
-            submitTime
+            submitTime: currentTime
         };
 
         console.log('JSONデータ:', JSON.stringify(data, null, 2));
@@ -87,6 +89,7 @@ function OperationManagement() {
                             setStoreName(e.target.value);
                             setCarID('');
                         }}
+                        required
                     >
                         <option value="">選択してください</option>
                         <option value="2584">飯塚楽市</option>
@@ -97,8 +100,11 @@ function OperationManagement() {
 
                 <label>
                     車両のナンバー:
-                    <select value={carID} onChange={(e) => setCarID(e.target.value)}
-                    disabled={!storeName}
+                    <select 
+                        value={carID} 
+                        onChange={(e) => setCarID(e.target.value)}
+                        disabled={!storeName}
+                        required
                     >
                         <option value="">選択してください</option>
                         {availableCarID.map((ID, index) => (
@@ -115,6 +121,7 @@ function OperationManagement() {
                         value={ODO}
                         onChange={(e) => setODO(e.target.value)}
                         placeholder='入力'
+                        required
                     />
                     km
                 </label>
@@ -130,7 +137,7 @@ function OperationManagement() {
                             ]
                         }
                         selectedValue={light}
-                        setSelectedValue={setLight}    
+                        setSelectedValue={setLight} 
                     />
                 </label>
 
@@ -169,6 +176,7 @@ function OperationManagement() {
                         value={carStatus}
                         onChange={(e) => setCarStatus(e.target.value)}
                         placeholder='何かあれば記入'
+                        required
                     />
                 </label>
                 <br/>
@@ -180,6 +188,7 @@ function OperationManagement() {
                         value={driverName}
                         onChange={(e) => setDriverName(e.target.value)}
                         placeholder='名前を入力'
+                        required
                     />
                 </label>
                 <br/>
@@ -189,7 +198,9 @@ function OperationManagement() {
                     <br/>
                     <input
                         type="file"
+                        accept="image/png, image/jpeg"
                         onChange={handleInputImage}
+                        required
                     />
                 </label>
                 <br/>

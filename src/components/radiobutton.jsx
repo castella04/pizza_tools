@@ -10,6 +10,7 @@ function RadioButton({ options, selectedValue, setSelectedValue }) {
                         value={option.value}
                         checked={selectedValue === option.value}
                         onChange={() => setSelectedValue(option.value)}
+                        required
                     />
                     {option.label}
                 </label>
