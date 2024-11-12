@@ -24,7 +24,8 @@ function OperationManagement() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const currentTime = new Date().toISOString();
+        const currentTime = new Date().toLocaleString('ja-JP', {timeZone: 'Asia/Tokyo'});
+        currentTime = currentTime.replace(/\//g, '-').replace(/,/g, '').replace(/\s/g, '-');
         setSubmitTime(currentTime);
 
         const data = {
@@ -37,7 +38,7 @@ function OperationManagement() {
             carStatus,
             driverName,
             licenseBase64,
-            submitTime: currentTime
+            submitTime
         };
 
         console.log('JSONデータ:', JSON.stringify(data, null, 2));
