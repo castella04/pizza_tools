@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename="/pizza_tools">
+      <BrowserRouter>
        <Routes>
         <Route path='/opemane' element={<OperationManagement />}/>
        </Routes>
