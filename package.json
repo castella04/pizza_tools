@@ -12,7 +12,7 @@
     "react-scripts": "^3.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://castella04.github.io/pizza_tools",
+  "homepage": "https://gh-pages.dad0ep9q9wr4g.amplifyapp.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && cp build/index.html build/404.html",
