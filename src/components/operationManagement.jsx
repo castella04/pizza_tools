@@ -44,6 +44,7 @@ function OperationManagement() {
 
          try {
             const response = await fetch('https://casteira.com:4160/omdata', {
+                mode: "cors",
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
