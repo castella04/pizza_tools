@@ -17,24 +17,18 @@ const Omexport = () => {
 
     try {
       const params = new URLSearchParams();
-      params.append("data", JSON.stringify(data));
+      params.append("storeName", storeName);
+      params.append("dateFrom", dateFrom);
+      params.append("dateTo", dateTo);
       const response = await fetch(
-        "https://casteira.com:4160/omexport?${params.toString()}",
+        `https://casteira.com:4160/omexport?${params.toString()}`,
         {
           mode: "cors",
           method: "GET",
         }
       );
       if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "data.csv";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
+        alert("メールボックスを確認してください。");
       } else {
         alert("ダウンロードに失敗しました。");
       }
@@ -50,6 +44,12 @@ const Omexport = () => {
         <meta name="description" content="運行日誌をダウンロードします" />
       </Helmet>
       <h1 class="page-title">運行日誌出力</h1>
+      <div class="func-description">
+        <p>
+          運行管理データをダウンロードできます。 <br />
+          出力されるデータは店舗メールに送信されます。
+        </p>
+      </div>
       <div class="input_area">
         <form class="submit-form">
           <label class="storeName">
@@ -58,8 +58,6 @@ const Omexport = () => {
               value={storeName}
               onChange={(e) => {
                 setStoreName(e.target.value);
-                setDateFrom("");
-                setDateTo("");
               }}
               required
             >
@@ -88,7 +86,7 @@ const Omexport = () => {
             />
           </label>
           <br />
-          <button class="submit-button" onClick={handleSubmit}>
+          <button type="button" class="submit-button" onClick={handleSubmit}>
             出力
           </button>
         </form>

@@ -20,9 +20,9 @@ function OperationManagement() {
   const [licenseBase64, setLicenseBase64] = useState("");
   const [isImgUploaded, setIsImgUploaded] = useState(false);
 
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   const carIDByStoreName = {
     2584: ["2633", "2634", "2660", "車"],
@@ -56,9 +56,9 @@ function OperationManagement() {
 
     console.log("JSONデータ:", JSON.stringify(data, null, 2));
 
-    setLoading(true);
+    // setLoading(true);
     setStatusMessage("送信中...");
-    setError(null);
+    // setError(null);
 
     try {
       const response = await fetch("https://casteira.com:4160/omdata", {
@@ -73,10 +73,10 @@ function OperationManagement() {
         throw new Error("送信に失敗しました。もう一度やり直してください。");
       }
     } catch (error) {
-      setError(error.message);
+      // setError(error.message);
       setStatusMessage("サーバーへの接続に失敗しました。");
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   };
 

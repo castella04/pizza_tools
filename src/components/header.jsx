@@ -42,6 +42,13 @@ function Header() {
                   ラーニングゾーン
                 </Link>
               </li>
+              <ul>
+                <li>
+                  <Link to="/omexport" onClick={() => setIsMenuOpen(false)}>
+                    運行日誌出力
+                  </Link>
+                </li>
+              </ul>
             </ul>
           </nav>
         </div>
