@@ -1,18 +1,36 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import logo from './logo.svg';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import OperationManagement from './components/operationManagement';
-import './App.css';
+import Footer from './components/footer'
+import Header from './components/header'
+import './css/App.css';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-       <Routes>
-        <Route path='/opemane' element={<OperationManagement />}/>
-       </Routes>
-      </BrowserRouter>
-    </div>
+    <HelmetProvider>
+      <Helmet>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <title>Pizza Tools</title>
+      </Helmet>
+      <div class="body">  { /* 擬似body */ }
+        <div class="body_inner">
+          
+          <BrowserRouter>
+          <Header />
+          <main>
+            <Routes>
+              <Route path='/opemane' element={<OperationManagement />} />
+            </Routes>
+          </main>
+          
+          <Footer />
+          </BrowserRouter>
+
+          
+        </div>
+      </div>
+    </HelmetProvider>
   );
 }
 
