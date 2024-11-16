@@ -155,8 +155,8 @@ function OperationManagement() {
             ライトは点灯しますか？
             <RadioButton
               options={[
-                { label: "はい", value: "1" },
-                { label: "いいえ", value: "0" },
+                { label: "はい", value: "ok" },
+                { label: "いいえ", value: "no" },
               ]}
               selectedValue={light}
               setSelectedValue={setLight}
@@ -167,8 +167,8 @@ function OperationManagement() {
             警告灯は点灯していませんか？
             <RadioButton
               options={[
-                { label: "はい", value: "1" },
-                { label: "いいえ", value: "0" },
+                { label: "はい", value: "ok" },
+                { label: "いいえ", value: "no" },
               ]}
               selectedValue={checkLamp}
               setSelectedValue={setCheckLamp}
@@ -179,8 +179,8 @@ function OperationManagement() {
             燃料は十分ですか？
             <RadioButton
               options={[
-                { label: "はい", value: "1" },
-                { label: "いいえ", value: "0" },
+                { label: "はい", value: "ok" },
+                { label: "いいえ", value: "no" },
               ]}
               selectedValue={fuel}
               setSelectedValue={setFuel}
