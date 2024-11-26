@@ -18,9 +18,9 @@ function OperationManagement() {
   const [driverName, setDriverName] = useState("");
   const [license, setLicense] = useState("");
   const [licenseBase64, setLicenseBase64] = useState("");
-  const [isImgUploaded, setIsImgUploaded] = useState(false);
+  const [isImgLoaded, setIsImgUploaded] = useState(false);
 
-  // const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
   // const [error, setError] = useState(null);
 
@@ -33,6 +33,11 @@ function OperationManagement() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (uploading) {
+      return 1;
+    } else {
+      setUploading(true);
+    }
     const currentTime = new Date().toLocaleString("ja-JP", {
       timeZone: "Asia/Tokyo",
     });
@@ -76,7 +81,7 @@ function OperationManagement() {
       // setError(error.message);
       setStatusMessage("サーバーへの接続に失敗しました。");
     } finally {
-      // setLoading(false);
+      setUploading(false);
     }
   };
 
@@ -226,7 +231,7 @@ function OperationManagement() {
               style={{ display: "none" }}
             />
             <img
-              class={isImgUploaded ? "img-preview true" : "img-preview"}
+              class={isImgLoaded ? "img-preview true" : "img-preview"}
               src={license}
               alt="アップロードされた免許証"
               style={{ width: "150px", height: "200px" }}
